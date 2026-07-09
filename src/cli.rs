@@ -38,7 +38,9 @@ impl Tool for Cli {
             min_umis: self.min_umis,
             max_mito_frac: self.max_mito,
         };
-        let mut out: Box<dyn std::io::Write> = if self.output == "-" {
+        let mut out: Box<dyn std::io::Write> = if self.output == "-" && self.common.json {
+            Box::new(std::io::sink())
+        } else if self.output == "-" {
             Box::new(std::io::stdout().lock())
         } else {
             Box::new(std::fs::File::create(&self.output).map_err(RsomicsError::Io)?)

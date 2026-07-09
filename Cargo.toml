@@ -1,6 +1,6 @@
 [package]
 name = "rsomics-cell-filter"
-version = "0.1.0"
+version = "0.1.1"
 description = "Filter cells by QC metrics — min genes, min UMIs, max mito fraction from a barcode stats TSV"
 edition = "2024"
 rust-version = "1.91"
